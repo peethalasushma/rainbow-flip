@@ -1,0 +1,69 @@
+import React, { useState } from 'react';
+
+// Individual item component
+const Item = ({ name, quantity }) => {
+  return (
+    <div>
+      <p>{name}</p>
+      <p>{quantity}</p>
+    </div>
+  );
+};
+
+// Button component
+const Button = ({ onClick, text }) => {
+  return <button onClick={onClick}>{text}</button>;
+};
+
+// Subtotal component
+const Subtotal = ({ total }) => {
+  return <p>Sub-Total: Rs. {total}</p>;
+};
+
+// Shopping cart component
+const ShoppingCart = () => {
+  // Sample data for items
+  const items = [
+    { name: "Apple Juice", quantity: "250ml" },
+    { name: "Grapes Juice", quantity: "250ml" }
+  ];
+
+  // State for total
+  const [total, setTotal] = useState(500);
+
+  // Function to remove item
+  const removeItem = (itemName) => {
+    // Logic to remove item
+  };
+
+  // Function to update quantity
+  const updateQuantity = (itemName, change) => {
+    // Logic to update quantity
+  };
+
+  return (
+    <div>
+      {/* Render items */}
+      {items.map((item, index) => (
+        <Item key={index} name={item.name} quantity={item.quantity} />
+      ))}
+
+      {/* Button to remove all */}
+      <Button onClick={() => removeItem("all")} text="Remove all" />
+
+      {/* Button to save for later */}
+
+      {/* Button to remove */}
+      {/* Button to add quantity */}
+      {/* Button to subtract quantity */}
+
+      {/* Subtotal */}
+      <Subtotal total={total} />
+
+      {/* Button to checkout */}
+      <Button onClick={() => checkout()} text="Checkout" />
+    </div>
+  );
+};
+
+export default ShoppingCart;
